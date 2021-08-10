@@ -14,8 +14,8 @@ void	ft_putnbr(int n)
 	}
 	if (i > 9)
 	{
-		ft_putnbr_fd(i / 10);
-		ft_putnbr_fd(i % 10);
+		ft_putnbr(i / 10);
+		ft_putnbr(i % 10);
 	}
 	else
 	{

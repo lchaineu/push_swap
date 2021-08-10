@@ -6,7 +6,7 @@
 /*   By: lchaineu <lchaineu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/19 13:46:15 by lchaineu          #+#    #+#             */
-/*   Updated: 2021/01/12 16:16:32 by lchaineu         ###   ########.fr       */
+/*   Updated: 2021/08/10 17:35:19 by lchaineu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	stars_finder(t_tab *tab, int i, int maxrange)
 	}
 }
 
-int		find_spec(t_tab *tab, int i)
+int	find_spec(t_tab *tab, int i)
 {
 	while (tab->input[i])
 	{

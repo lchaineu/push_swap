@@ -6,7 +6,7 @@
 /*   By: lchaineu <lchaineu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/13 10:07:31 by lchaineu          #+#    #+#             */
-/*   Updated: 2021/08/10 13:04:55 by lchaineu         ###   ########.fr       */
+/*   Updated: 2021/08/10 17:05:40 by lchaineu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ char	**ft_split(char const *s, char c)
 		while (s[i] && s[i] == c)
 			i++;
 		res[j] = (char *)malloc(sizeof(char)
-			* (nbr_letters(s, c, i) + 1));
+				* (nbr_letters(s, c, i) + 1));
 		if (!res[j])
 			return (free_words(res));
 		create_word(s, c, &i, res[j]);

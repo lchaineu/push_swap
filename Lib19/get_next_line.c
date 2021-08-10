@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lchaineu <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: lchaineu <lchaineu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/09 10:23:23 by lanachaineu       #+#    #+#             */
-/*   Updated: 2020/11/09 10:42:58 by lanachaineu      ###   ########.fr       */
+/*   Updated: 2021/08/10 17:40:53 by lchaineu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		read_line(int fd, char **line)
+int	read_line(int fd, char **line)
 {
 	char		buf[BUFFER_SIZE + 1];
 	int			ret;
@@ -24,7 +24,8 @@ int		read_line(int fd, char **line)
 		if (ret == (-1))
 			return (-1);
 		buf[ret] = '\0';
-		if (!(*line = ft_strjoin(*line, buf)))
+		*line = ft_strjoin(*line, buf);
+		if (!*line)
 			return (-1);
 		if (is_break(*line))
 			return (1);
@@ -40,7 +41,8 @@ char	*before_break(char *line)
 	i = 0;
 	while (line[i] && line[i] != '\n')
 		i++;
-	if (!(line_bis = (char *)malloc(sizeof(char) * (i + 1))))
+	line_bis = (char *)malloc(sizeof(char) * (i + 1));
+	if (!line_bis)
 		return (0);
 	i = 0;
 	while (line[i] && line[i] != '\n')
@@ -63,8 +65,9 @@ char	*after_break(char *line)
 	while (line[i] && line[i] != '\n')
 		i++;
 	i++;
-	if (!(line_bis = (char *)malloc(sizeof(char)
-		* (ft_strlen(line) - i + 1))))
+	line_bis = (char *)malloc(sizeof(char)
+			* (ft_strlen(line) - i + 1));
+	if (!line_bis)
 		return (0);
 	while (line[i])
 		line_bis[j++] = line[i++];
@@ -73,7 +76,7 @@ char	*after_break(char *line)
 	return (line_bis);
 }
 
-int		get_next_line(int fd, char **line)
+int	get_next_line(int fd, char **line)
 {
 	static char	*new_line;
 	int			rep;
@@ -82,12 +85,14 @@ int		get_next_line(int fd, char **line)
 		return (-1);
 	if (!new_line)
 	{
-		if (!(new_line = (char*)malloc(sizeof(char))))
+		new_line = (char *)malloc(sizeof(char));
+		if (!new_line)
 			return (-1);
 		new_line[0] = '\0';
 	}
 	rep = read_line(fd, &new_line);
-	if (!(*line = before_break(new_line)))
+	*line = before_break(new_line);
+	if (!*line)
 		return (-1);
 	if (rep == 1)
 		new_line = after_break(new_line);

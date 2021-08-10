@@ -6,13 +6,13 @@
 /*   By: lchaineu <lchaineu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/08 12:57:01 by lchaineu          #+#    #+#             */
-/*   Updated: 2021/01/12 16:11:39 by lchaineu         ###   ########.fr       */
+/*   Updated: 2021/08/10 17:52:43 by lchaineu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		convert_d_i(t_tab *tab)
+int	convert_d_i(t_tab *tab)
 {
 	char			*str;
 	long int		num;
@@ -23,16 +23,20 @@ int		convert_d_i(t_tab *tab)
 		num = -num;
 		tab->negative = 1;
 	}
-	if (!(str = ft_itoa_p(num, 10, "0123456789")))
+	str = ft_itoa_p(num, 10, "0123456789");
+	if (!str)
 		return (-1);
-	if (!(tab->answer = strjoin_back(tab->answer, str)))
+	tab->answer = strjoin_back(tab->answer, str);
+	if (!tab->answer)
 		free_malloc_error(str, -1);
 	free(str);
-	if (((tab->negative && !(tab->is_precision)) ||
-	(tab->negative && tab->is_precision && (!tab->precision)))
-	&& !(tab->width && tab->zero && ft_strlen(tab->answer) < tab->width))
+	if (((tab->negative && !(tab->is_precision))
+			|| (tab->negative && tab->is_precision && (!tab->precision)))
+		&& !(tab->width && tab->zero && ft_strlen(tab->answer)
+			< tab->width))
 	{
-		if (!(tab->answer = strjoin_front(tab->answer, "-")))
+		tab->answer = strjoin_front(tab->answer, "-");
+		if (!tab->answer)
 			return (-1);
 	}
 	if (tab->is_precision == 1 && tab->precision == 0 && tab->answer[0] == '0')

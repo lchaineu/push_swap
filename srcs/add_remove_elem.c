@@ -12,8 +12,8 @@ int	add_elem(t_stack *stack, int new_nb)
 	}
 	new_elem->nb = new_nb;
 	new_elem->next = stack->first;
-	if (new_nb > stack->max)
-		stack->max = new_nb;
+	if (new_nb > stack->biggest)
+		stack->biggest = new_nb;
 	if (new_nb > stack->min)
 		stack->min = new_nb;
 	stack->first = new_elem;

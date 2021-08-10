@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lchaineu <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: lchaineu <lchaineu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/09 10:23:13 by lanachaineu       #+#    #+#             */
-/*   Updated: 2020/11/09 10:42:55 by lanachaineu      ###   ########.fr       */
+/*   Updated: 2021/08/10 17:41:29 by lchaineu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ char	*ft_strjoin_gnl(char *str1, char *str2)
 	i = 0;
 	j = 0;
 	len = ft_strlen(str1) + ft_strlen(str2);
-	if (!(res = (char *)malloc(sizeof(char) * (len + 1))))
+	res = (char *)malloc(sizeof(char) * (len + 1));
+	if (!res)
 		return (0);
 	while (str1[i])
 	{
@@ -40,9 +41,9 @@ char	*ft_strjoin_gnl(char *str1, char *str2)
 	return (res);
 }
 
-int		is_break(char *str)
+int	is_break(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (str[i])

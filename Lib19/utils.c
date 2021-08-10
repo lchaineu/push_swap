@@ -6,15 +6,15 @@
 /*   By: lchaineu <lchaineu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/19 13:46:28 by lchaineu          #+#    #+#             */
-/*   Updated: 2021/01/12 16:30:50 by lchaineu         ###   ########.fr       */
+/*   Updated: 2021/08/10 17:35:05 by lchaineu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_strcmp(char *s1, char *s2)
+int	ft_strcmp(char *s1, char *s2)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (s1[i] && s2[i])
@@ -42,7 +42,8 @@ char	*ft_strdup_printf(const char *str)
 		return (ft_strdup_printf("(null)"));
 	else
 		len = ft_strlen(str);
-	if (!(newstr = malloc(sizeof(char) * (len + 1))))
+	newstr = malloc(sizeof(char) * (len + 1));
+	if (!newstr)
 		return (NULL);
 	while (i < len)
 	{
@@ -53,9 +54,9 @@ char	*ft_strdup_printf(const char *str)
 	return (newstr);
 }
 
-int		search_string(char c, char *str)
+int	search_string(char c, char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (str[i])
@@ -67,7 +68,7 @@ int		search_string(char c, char *str)
 	return (0);
 }
 
-int		free_malloc_error(void *tofree, int toreturn)
+int	free_malloc_error(void *tofree, int toreturn)
 {
 	free(tofree);
 	return (toreturn);

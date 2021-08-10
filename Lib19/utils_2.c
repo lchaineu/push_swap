@@ -6,15 +6,15 @@
 /*   By: lchaineu <lchaineu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/19 13:46:18 by lchaineu          #+#    #+#             */
-/*   Updated: 2021/01/12 16:18:34 by lchaineu         ###   ########.fr       */
+/*   Updated: 2021/08/10 17:34:13 by lchaineu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void			ft_pustr(char *str, t_tab *tab)
+void	ft_pustr(char *str, t_tab *tab)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (str)
@@ -31,7 +31,7 @@ void			ft_pustr(char *str, t_tab *tab)
 	tab->len = tab->len + ft_strlen(tab->answer);
 }
 
-char			*strjoin_back(char *s1, char *s2)
+char	*strjoin_back(char *s1, char *s2)
 {
 	char	*new_answer;
 	int		i;
@@ -39,8 +39,9 @@ char			*strjoin_back(char *s1, char *s2)
 
 	i = 0;
 	j = 0;
-	if (!(new_answer = (char *)malloc(sizeof(char)
-	* (ft_strlen(s1) + ft_strlen(s2) + 1))))
+	new_answer = (char *)malloc(sizeof(char)
+			* (ft_strlen(s1) + ft_strlen(s2) + 1));
+	if (!new_answer)
 		return (NULL);
 	while (s1[i])
 	{
@@ -58,7 +59,7 @@ char			*strjoin_back(char *s1, char *s2)
 	return (new_answer);
 }
 
-char			*strjoin_front(char *s1, char *s2)
+char	*strjoin_front(char *s1, char *s2)
 {
 	char	*new_answer;
 	int		i;
@@ -66,8 +67,9 @@ char			*strjoin_front(char *s1, char *s2)
 
 	i = 0;
 	j = 0;
-	if (!(new_answer = (char *)malloc(sizeof(char)
-		* (ft_strlen(s1) + ft_strlen(s2) + 1))))
+	new_answer = (char *)malloc(sizeof(char)
+			* (ft_strlen(s1) + ft_strlen(s2) + 1));
+	if (!new_answer)
 		return (NULL);
 	while (s2[i])
 	{
@@ -85,9 +87,9 @@ char			*strjoin_front(char *s1, char *s2)
 	return (new_answer);
 }
 
-static	int		getdigits(unsigned long long int nombre, int base)
+static	int	getdigits(unsigned long long int nombre, int base)
 {
-	int i;
+	int	i;
 
 	i = 1;
 	while (nombre / base > 0)
@@ -98,14 +100,15 @@ static	int		getdigits(unsigned long long int nombre, int base)
 	return (i);
 }
 
-char			*ft_itoa_p(unsigned long long int nombre,
+char	*ft_itoa_p(unsigned long long int nombre,
 							int base, char *charbase)
 {
 	int		digits;
 	char	*str;
 
 	digits = getdigits(nombre, base);
-	if (!(str = malloc(sizeof(char) * (digits + 1))))
+	str = malloc(sizeof(char) * (digits + 1));
+	if (!str)
 		return (NULL);
 	str[digits] = '\0';
 	while (digits)

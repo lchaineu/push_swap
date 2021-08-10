@@ -6,7 +6,7 @@
 /*   By: lchaineu <lchaineu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/19 13:45:21 by lchaineu          #+#    #+#             */
-/*   Updated: 2021/08/10 12:53:04 by lchaineu         ###   ########.fr       */
+/*   Updated: 2021/08/10 17:12:25 by lchaineu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,20 @@ static	int	c_width(t_tab *tab)
 {
 	if (tab->minus)
 	{
-		if (!(tab->answer = addstrback(tab, ' ', tab->width)))
+		tab->answer = addstrback(tab, ' ', tab->width);
+		if (!tab->answer)
 			return (-1);
 	}
 	else
 	{
-		if (!(tab->answer = addstrfront(tab, ' ', tab->width)))
+		tab->answer = addstrfront(tab, ' ', tab->width);
+		if (!tab->answer)
 			return (-1);
 	}
 	return (1);
 }
 
-static	int		display_c(t_tab *tab)
+static	int	display_c(t_tab *tab)
 {
 	if (tab->width)
 		if (c_width(tab) == -1)
@@ -35,11 +37,12 @@ static	int		display_c(t_tab *tab)
 	return (1);
 }
 
-int				convert_c(t_tab *tab)
+int	convert_c(t_tab *tab)
 {
 	char	*str;
 
-	if (!(str = malloc(sizeof(char) * 2)))
+	str = malloc(sizeof(char) * 2);
+	if (!str)
 		return (-1);
 	str[0] = va_arg(tab->ap, int);
 	str[1] = '\0';
@@ -49,7 +52,8 @@ int				convert_c(t_tab *tab)
 		if (tab->width >= 1)
 			tab->width--;
 	}
-	if (!(tab->answer = strjoin_back(tab->answer, str)))
+	tab->answer = strjoin_back(tab->answer, str);
+	if (!tab->answer)
 		free_malloc_error(str, -1);
 	free(str);
 	return (display_c(tab));

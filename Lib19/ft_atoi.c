@@ -6,7 +6,7 @@
 /*   By: lchaineu <lchaineu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/06 09:35:05 by lchaineu          #+#    #+#             */
-/*   Updated: 2021/08/10 13:10:30 by lchaineu         ###   ########.fr       */
+/*   Updated: 2021/08/10 17:29:32 by lchaineu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	ft_atoi(const char *str)
 	rep = 0;
 	while (str[i] == '\f' || str[i] == '\t' || str[i] == '\n'
 		|| str[i] == '\r' || str[i] == '\v' || str[i] == ' ')
-			i++;
+		i++;
 	if (str[i] == '-' || str[i] == '+')
 	{
 		if (str[i] == '-')
