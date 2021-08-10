@@ -1,5 +1,20 @@
 #include "../inc/push_swap.h"
 
+void	ft_lstclear_ps(t_elem *elem)
+{
+	t_elem	*temp;
+	t_elem	*todelete;
+
+	temp = elem;
+	while (temp)
+	{
+		todelete = temp;
+		temp = temp->next;
+		free(todelete);
+	}
+	elem = NULL;
+}
+
 int	number_of_words(char **av)
 {
 	int	i;
@@ -10,28 +25,31 @@ int	number_of_words(char **av)
 	return (i);
 }
 
-int	get_proper_stack(int *ac, char ***av, t_data *data)
+void	stack_biggests_nb(t_stack *stack)
 {
-	int	i;
+	t_elem	*current;
 
-	i = 0;
-	if (*ac == 2)
+	stack->biggest = -2147483648;
+	current = stack->first;
+	while (current)
 	{
-		if (!(*av = ft_split((*av)[1], ' ')))
-			return (0);
-		*ac = nb_of_words(*av);
-		data->is_av_malloc = 1;
-		data->av = *av;
+		stack->biggest = (current->nb > stack->biggest)
+			? current->nb : stack->biggest;
+		current = current->next;
 	}
-	else
+	current = stack->first;
+	while (current)
 	{
-		while (i < *ac - 1)
-		{
-			(*av)[i] = (*av)[i + 1];
-			i++;
-		}
-		(*av)[i] = 0;
-		(*ac)--;
+		if (current->nb > stack->biggest_bis && current->nb != stack->biggest)
+			stack->biggest_bis = current->nb;
+		current = current->next;
 	}
-	return (1);
+	current = stack->first;
+	while (current)
+	{
+		if (current->nb > stack->biggest_ter && current->nb
+			!= stack->biggest && current->nb != stack->biggest_bis)
+			stack->biggest_ter = current->nb;
+		current = current->next;
+	}
 }
