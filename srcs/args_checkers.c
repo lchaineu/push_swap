@@ -1,25 +1,19 @@
 #include "../inc/push_swap.h"
 
-int	is_digits(int ac, char **av)
+int	is_digits(char *str)
 {
 	int	i;
-	int	j;
 
-	j = 0;
-	while (j < ac)
+	i = 0;
+	if (!ft_strcmp(str, "-") || !ft_strcmp(str, "+"))
+		return (0);
+	if (str[0] == '-' || str[0] == '+')
+		i++;
+	while (str[i])
 	{
-		if (!ft_strcmp(av[j], "-") || !ft_strcmp(av[j], "+"))
+		if (!ft_isdigit(str[i]))
 			return (0);
-		i = 0;
-		if (av[j][0] == '-' || av[j][0] == '+')
-			i++;
-		while (av[j][i])
-		{
-			if (!ft_isdigit(av[j][i]))
-				return (0);
-			i++;
-		}
-		j++;
+		i++;
 	}
 	return (1);
 }
@@ -66,10 +60,11 @@ int	check_arg(int ac, char **av)
 	int	i;
 
 	i = 0;
-	if (!is_digits(ac, av))
-		return (0);
+
 	while (i < ac)
 	{
+		if (!is_digits(av[1]))
+			return (0);
 		if (!is_int(av[i]))
 			return (0);
 		i++;
