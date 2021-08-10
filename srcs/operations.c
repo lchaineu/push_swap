@@ -49,11 +49,11 @@ void	rev_rotate(t_stack *stack)
 	stack->first = temp;
 }
 
-int	push(t_stack *a_stack, t_stack *b_stack)
+int	push(t_stack *to_stack, t_stack *from_stack)
 {
-	if (b_stack->count == 0)
+	if (from_stack->count == 0)
 		return (1);
-	else if (!add_elem(a_stack, rem_elem(b_stack)))
+	else if (!add_elem(to_stack, rem_elem(from_stack)))
 		return (0);
 	return (1);
 }

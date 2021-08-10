@@ -28,6 +28,7 @@ typedef struct s_data {
 
 typedef struct s_sorting
 {
+	
 	int		ra;
 	int		rb;
 	int		rra;
