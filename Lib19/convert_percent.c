@@ -6,7 +6,7 @@
 /*   By: lchaineu <lchaineu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/19 13:45:36 by lchaineu          #+#    #+#             */
-/*   Updated: 2021/08/10 17:23:16 by lchaineu         ###   ########.fr       */
+/*   Updated: 2021/08/10 17:57:24 by lchaineu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int	convert_percent(t_tab *tab)
 {
 	char	*str;
 
-	str = malloc(sizeof(char) * 2));
+	str = malloc(sizeof(char) * 2);
 	if (!str)
 		return (-1);
 	str[0] = '%';
