@@ -13,6 +13,6 @@ void	sort_big_stack(t_stack *a_stack, t_stack *b_stack)
 	while (a_stack->count > 3)
 	{
 		to_insert = which_to_insert(a_stack, b_stack);
-
+		aaa
 	}
 }
