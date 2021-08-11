@@ -26,7 +26,7 @@ t_stack	*init_empty_stack(void)
 	stack->first = NULL;
 	stack->count = 0;
 	stack->min = 2147483647;
-	stack->max = -2147483648;
+	stack->biggest = -2147483648;
 	return (stack);
 }
 

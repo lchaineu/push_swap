@@ -1,36 +1,48 @@
 NAME			= push_swap
 
-SRCS_LIST		= \
-							push_swap.c
+CC				= gcc
+FLAGS			= -Wall -Werror -Wextra
+INCL			= ./inc/
+LIBFT_PATH		= ./Lib19/
 
-SRCS			= $(addprefix ${FOLDER}/, ${SRCS_LIST})
+CFLAGS			=-I$(LIBFT_PATH)inc/ -I $(INCL) $(FLAGS)
+
+LINKS		=	-L $(LIBFT_PATH) -lft
+
+
+
+SRCS_EXIT	=	free.c
+
+SRCS_MAIN	=	main.c
+
+SRCS_OPERATIONS		=	apply_ops_and_write.c
+						operations.c
+
+SRCS_PARSE_AND_SET	=	args_checkers.c
+						set_and_print_stack.c
+						stack_checkers.c
+
+SRCS_SORTING		=	big_stacks_sorting.c
+						calculate_opti_ops.c
+						small_stack_sorting.c
+						sort_and_print_answer.c
+
+SRCS_UTILS			=	add_remove_elem.c
+						utils.c
+
 
 OBJS			= ${SRCS:.c=.o}
 
-FOLDER			= srcs
 
-LIBFT			= Lib19
-
-CC				= gcc
-
-CFLAGS			= -Wall -Wextra -Werror
-LFLAGS			= -L Lib19 -lft
-
-RM				= rm -f
+######## RULES ########
 
 all:			$(NAME)
 
-$(NAME):		$(OBJS)
-						@make bonus -s -C $(LIBFT)
-						@$(CC) $(CFLAGS) $(LFLAGS) $(OBJS) -o $(NAME)
-
-%.o: %.c
-				@$(CC) $(CFLAGS) -o $@ -c $<
+$(NAME):		 $(OBJ_PSWAP)
+			@$(CC) -o $(NAME) $(OBJ_PSWAP) $(CFLAGS) $(LINKS)
 
 clean:
-				@$(RM) $(OBJS)
-				@make clean -C $(LIBFT)
-
+			@/bin/rm -rf $(OBJ_PSWAP)	
 
 fclean:		 clean
 				@$(RM) $(NAME)

@@ -1,7 +1,7 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include <stdio.h>
+# include <unistd.h>
 # include <stdlib.h>
 # include "../Lib19/libft.h"
 
@@ -28,67 +28,82 @@ typedef struct s_data {
 
 typedef struct s_sorting
 {
-	
 	int		ra;
 	int		rb;
 	int		rra;
 	int		rrb;
+	char	op_combi_type;
+	int		op_amount;
 }	t_sorting;
 
-int		main(int ac, char **av);
+int			main(int ac, char **av);
 
-int		check_arg(int ac, char **av);
+int			check_arg(int ac, char **av);
 
-int		get_proper_stack(int *ac, char ***av, t_data *data);
+int			get_proper_stack(int *ac, char ***av, t_data *data);
 
-void	exit_and_free(t_data *data, int n);
+int			number_of_words(char **av);
 
-void	free_arg(char **av);
+// Exit and Free
 
-t_stack	*fill_stack_with_ints(int ac, char **av);
+void		exit_and_free(t_data *data, int n);
 
-t_stack	*init_empty_stack(void);
+void		free_arg(char **av);
 
-int		add_elem(t_stack *stack, int new_nb);
+void		free_stack(t_stack	*stack);
 
-int		rem_elem(t_stack *stack);
 
-void	free_stack(t_stack	*stack);
 
-void	ft_lstclear_ps(t_elem *elem);
+t_stack		*fill_stack_with_ints(int ac, char **av);
 
-int		is_double(t_stack *stack);
+t_stack		*init_empty_stack(void);
 
-int		is_sorted(t_stack *a_stack, t_stack *b_stack);
+int			add_elem(t_stack *stack, int new_nb);
 
-void	print_stack(t_stack *stack);
+int			rem_elem(t_stack *stack);
 
-void	sort_by_type_of_stack(t_stack *a_stack, t_stack *b_stack);
+void		free_stack(t_stack	*stack);
 
-void	sort_stack_of_two(t_stack *a_stack);
+void		ft_lstclear_ps(t_elem *elem);
 
-void	sort_stack_of_three(t_stack *a_stack);
+int			is_double(t_stack *stack);
 
-void	sa_and_rep(t_stack *a_stack);
+int			is_sorted(t_stack *a_stack, t_stack *b_stack);
 
-void	ra_and_rep(t_stack *a_stack);
+void		print_stack(t_stack *stack);
 
-void	rra_and_rep(t_stack *a_stack);
+void		sort_by_type_of_stack(t_stack *a_stack, t_stack *b_stack);
 
-void	rb_and_rep(t_stack *b_stack);
+void		sort_stack_of_two(t_stack *a_stack);
 
-void	rrb_and_rep(t_stack *b_stack);
+void		sort_stack_of_three(t_stack *a_stack);
 
-void	swap(t_stack *stack);
+void		sa_and_rep(t_stack *a_stack);
 
-void	rotate(t_stack *stack);
+void		ra_and_rep(t_stack *a_stack);
 
-void	rev_rotate(t_stack *stack);
+void		rra_and_rep(t_stack *a_stack);
 
-int		push(t_stack *a_stack, t_stack *b_stack);
+void		rb_and_rep(t_stack *b_stack);
 
-void	stack_max_nb(t_stack *stack);
+void		rrb_and_rep(t_stack *b_stack);
 
-void	sort_big_stack(t_stack *a_stack, t_stack *b_stack);
+void		swap(t_stack *stack);
+
+void		rotate(t_stack *stack);
+
+void		rev_rotate(t_stack *stack);
+
+int			push(t_stack *a_stack, t_stack *b_stack);
+
+void		stack_max_nb(t_stack *stack);
+
+void		sort_big_stack(t_stack *a_stack, t_stack *b_stack);
+
+t_sorting	opti_ops(t_elem *elem, t_stack *a_stack, t_stack *b_stack);
+
+int			find_min(int a, int b);
+
+int			find_max(int a, int b);
 
 #endif

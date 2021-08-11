@@ -21,10 +21,10 @@ int	main(int ac, char **av)
 	t_stack	*b_stack;
 	t_data	data;
 
-	if (ac == 0)
-		return (EXIT_SUCCESS);
 	if (!get_proper_stack(&ac, &av, &data))
 		exit_and_free(&data, 0);
+	if (ac == 0)
+		return (EXIT_SUCCESS);
 	if (!check_arg(ac, av))
 		exit_and_free(&data, 0);
 	a_stack = fill_stack_with_ints(ac, av);
@@ -40,4 +40,5 @@ int	main(int ac, char **av)
 	if (!is_sorted(a_stack, b_stack))
 		exit_and_free(&data, 3);
 	sort_by_type_of_stack(a_stack, b_stack);
+	exit_and_free(&data, 3);
 }

@@ -29,10 +29,3 @@ void	rrb_and_rep(t_stack *b_stack)
 	rev_rotate(b_stack);
 	write(1, "rrb\n", 4);
 }
-
-
-
-
-
-
-
