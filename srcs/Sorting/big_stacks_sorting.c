@@ -1,6 +1,6 @@
 #include "../inc/push_swap.h"
 
-int	amount_rotation_needed_bstack(t_stack *stack)
+static int	amount_rotation_needed_bstack(t_stack *stack)
 {
 	t_elem	*temp;
 	int		answer;
@@ -49,7 +49,7 @@ void	sort_big_stack(t_stack *a_stack, t_stack *b_stack)
 	{
 		ops_to_apply = which_ops_for_quickest(a_stack, b_stack);
 		do_sort_and_print(ops_to_apply, a_stack, b_stack);
-		if (!push(a_stack, b_stack))
+		if (!push(b_stack, a_stack))
 			return ;
 		write(1, "pb\n", 3);
 	}

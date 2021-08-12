@@ -1,6 +1,6 @@
 #include "../inc/push_swap.h"
 
-int	is_digits(char *str)
+static int	is_digits(char *str)
 {
 	int	i;
 
@@ -18,7 +18,7 @@ int	is_digits(char *str)
 	return (1);
 }
 
-int	check_int_limits(char *str, char sign)
+static int	check_int_limits(char *str, char sign)
 {
 	if (sign == 'p' && ft_strcmp(str, "2147483647") > 0)
 		return (0);
@@ -30,7 +30,7 @@ int	check_int_limits(char *str, char sign)
 		return (1);
 }
 
-int	is_int(char *str)
+static int	is_int(char *str)
 {
 	int		len;
 	char	sign;

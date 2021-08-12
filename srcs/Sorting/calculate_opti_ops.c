@@ -83,13 +83,14 @@ t_sorting	opti_ops(t_elem *elem, t_stack *a_stack, t_stack *b_stack)
 {
 	t_sorting	tot_ops;
 
+	tot_ops.nbr = elem->nb;
 	tot_ops.ra = ra_amount(elem, a_stack);
 	tot_ops.rra = (a_stack->count - tot_ops.ra) % a_stack->count;
 	tot_ops.rb = rb_amount(elem, b_stack);
 	if (b_stack->count == 0)
 		tot_ops.rrb = 0;
 	else
-		tot_ops.rrb = ((b_stack->count - tot_ops.rb) % tot_ops.rrb);
+		tot_ops.rrb = ((b_stack->count - tot_ops.rb) % b_stack->count);
 	calculate_op_amount_and_type(&tot_ops);
 	return (tot_ops);
 }

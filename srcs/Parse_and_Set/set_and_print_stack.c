@@ -36,7 +36,7 @@ t_stack	*fill_stack_with_ints(int ac, char **av)
 
 	stack = init_empty_stack();
 	if (stack == NULL)
-		return (NULL);	
+		return (NULL);
 	while (--ac >= 0)
 	{
 		if (!add_elem(stack, ft_atoi(av[ac])))

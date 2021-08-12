@@ -6,11 +6,20 @@
 /*   By: lchaineu <lchaineu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/08 12:57:01 by lchaineu          #+#    #+#             */
-/*   Updated: 2021/08/10 17:52:43 by lchaineu         ###   ########.fr       */
+/*   Updated: 2021/08/12 12:34:01 by lchaineu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+static void	is_negative(t_tab *tab, long int *num)
+{
+	if ((*num) < 0)
+	{
+		(*num) = -(*num);
+		tab->negative = 1;
+	}
+}
 
 int	convert_d_i(t_tab *tab)
 {
@@ -18,11 +27,7 @@ int	convert_d_i(t_tab *tab)
 	long int		num;
 
 	num = va_arg(tab->ap, int);
-	if (num < 0)
-	{
-		num = -num;
-		tab->negative = 1;
-	}
+	is_negative(tab, &num);
 	str = ft_itoa_p(num, 10, "0123456789");
 	if (!str)
 		return (-1);

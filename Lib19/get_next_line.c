@@ -6,7 +6,7 @@
 /*   By: lchaineu <lchaineu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/09 10:23:23 by lanachaineu       #+#    #+#             */
-/*   Updated: 2021/08/10 17:40:53 by lchaineu         ###   ########.fr       */
+/*   Updated: 2021/08/12 13:29:40 by lchaineu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ int	read_line(int fd, char **line)
 
 	if (is_break(*line))
 		return (1);
-	while ((ret = read(fd, buf, BUFFER_SIZE)))
+	ret = read(fd, buf, BUFFER_SIZE);
+	while (ret)
 	{
 		if (ret == (-1))
 			return (-1);
@@ -29,6 +30,7 @@ int	read_line(int fd, char **line)
 			return (-1);
 		if (is_break(*line))
 			return (1);
+		ret = read(fd, buf, BUFFER_SIZE);
 	}
 	return (0);
 }

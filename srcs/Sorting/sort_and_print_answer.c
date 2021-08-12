@@ -50,17 +50,17 @@ static void	apply_minimum(t_sorting sort, t_stack *a_stack, t_stack *b_stack)
 
 	i = -1;
 	if (sort.ra < sort.rra)
-		while (i++ < sort.ra)
+		while (++i < sort.ra)
 			ra_and_rep(a_stack);
 	else
-		while (i++ < sort.rra)
+		while (++i < sort.rra)
 			rra_and_rep(a_stack);
 	i = -1;
 	if (sort.rb < sort.rrb)
-		while (i++ < sort.rb)
+		while (++i < sort.rb)
 			rb_and_rep(b_stack);
 	else
-		while (i++ < sort.rrb)
+		while (++i < sort.rrb)
 			rrb_and_rep(b_stack);
 }
 
