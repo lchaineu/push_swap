@@ -36,15 +36,14 @@ t_stack	*fill_stack_with_ints(int ac, char **av)
 
 	stack = init_empty_stack();
 	if (stack == NULL)
-		return (NULL);
-	while (ac >= 0)
+		return (NULL);	
+	while (--ac >= 0)
 	{
 		if (!add_elem(stack, ft_atoi(av[ac])))
 		{
 			free_stack(stack);
 			return (NULL);
 		}
-		ac--;
 	}
 	return (stack);
 }
@@ -59,7 +58,7 @@ int	get_proper_stack(int *ac, char ***av, t_data *data)
 		*av = ft_split((*av)[1], ' ');
 		if (*av == NULL)
 			return (0);
-		*ac = nb_of_words(*av);
+		*ac = number_of_words(*av);
 		data->is_av_malloc = 1;
 		data->av = *av;
 	}

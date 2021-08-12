@@ -66,7 +66,7 @@ static void	calculate_op_amount_and_type(t_sorting *sort)
 	int	rr;
 	int	rrr;
 
-	rarrb = find_min(sort->ra, sort->rra) + find_smallest(sort->rb, sort->rrb);
+	rarrb = find_min(sort->ra, sort->rra) + find_min(sort->rb, sort->rrb);
 	rr = find_max(sort->ra, sort->rb);
 	rrr = find_max(sort->rra, sort->rrb);
 	sort->op_amount = find_min(rarrb, rrr);

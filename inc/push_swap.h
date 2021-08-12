@@ -3,6 +3,7 @@
 
 # include <unistd.h>
 # include <stdlib.h>
+# include <stdio.h>
 # include "../Lib19/libft.h"
 
 typedef struct s_elem {
@@ -66,6 +67,8 @@ void		free_stack(t_stack	*stack);
 
 void		ft_lstclear_ps(t_elem *elem);
 
+void		stack_biggests_nb(t_stack *stack);
+
 int			is_double(t_stack *stack);
 
 int			is_sorted(t_stack *a_stack, t_stack *b_stack);
@@ -105,5 +108,7 @@ t_sorting	opti_ops(t_elem *elem, t_stack *a_stack, t_stack *b_stack);
 int			find_min(int a, int b);
 
 int			find_max(int a, int b);
+
+void	do_sort_and_print(t_sorting sort, t_stack *a_stack, t_stack *b_stack);
 
 #endif

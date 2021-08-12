@@ -8,9 +8,9 @@ void	swap(t_stack *stack)
 		return ;
 	else
 	{
-		temp = stack->first;
-		stack->first = stack->first->next;
-		stack->first->next = temp;
+		temp = stack->first->next->nb;
+		stack->first->next->nb = stack->first->nb;
+		stack->first->nb = temp;
 	}	
 }
 

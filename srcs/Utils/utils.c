@@ -46,6 +46,8 @@ void	stack_biggests_nb(t_stack *stack)
 	t_elem	*current;
 
 	stack->biggest = -2147483648;
+	stack->biggest_bis = -2147483648;
+	stack->biggest_ter = -2147483648;
 	current = stack->first;
 	while (current)
 	{

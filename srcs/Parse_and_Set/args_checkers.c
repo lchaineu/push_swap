@@ -20,7 +20,7 @@ int	is_digits(char *str)
 
 int	check_int_limits(char *str, char sign)
 {
-	if (sign == 'pos' && ft_strcmp(str, "2147483647") > 0)
+	if (sign == 'p' && ft_strcmp(str, "2147483647") > 0)
 		return (0);
 	else if (sign == '+' && ft_strcmp(str + 1, "2147483647") > 0)
 		return (0);
@@ -35,7 +35,7 @@ int	is_int(char *str)
 	int		len;
 	char	sign;
 
-	sign = 'pos';
+	sign = 'p';
 	len = ft_strlen(str);
 	if (str[0] == '-')
 	{

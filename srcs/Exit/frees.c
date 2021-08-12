@@ -1,6 +1,6 @@
 #include "../inc/push_swap.h"
 
-static void	free_arg(char **av)
+void	free_arg(char **av)
 {
 	int	i;
 
@@ -15,7 +15,7 @@ static void	free_arg(char **av)
 
 void	free_stack(t_stack	*stack)
 {
-	ft_lstclear_ps(stack);
+	ft_lstclear_ps(stack->first);
 	free(stack);
 }
 
@@ -32,7 +32,7 @@ void	exit_and_free(t_data *data, int n)
 	if (n >= 1)
 		free_stack(data->a_stack);
 	if (n >= 2)
-		free_stack(data->a_stack);
+		free_stack(data->b_stack);
 	if (n <= 2)
 		error();
 	if (n > 2)
