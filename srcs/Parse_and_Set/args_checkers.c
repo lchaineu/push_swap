@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   args_checkers.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lchaineu <lchaineu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lchaineu <lchaineu@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/14 10:37:28 by lchaineu          #+#    #+#             */
-/*   Updated: 2021/09/14 10:37:30 by lchaineu         ###   ########.fr       */
+/*   Updated: 2021/11/10 10:18:07 by lchaineu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static int	check_int_limits(char *str, char sign)
 		return (0);
 	else if (sign == '+' && ft_strcmp(str + 1, "2147483647") > 0)
 		return (0);
-	else if (sign == '-' && ft_strcmp(str + 1, "2147483647") > 0)
+	else if (sign == '-' && ft_strcmp(str + 1, "2147483648") > 0)
 		return (0);
 	else
 		return (1);
@@ -71,14 +71,13 @@ int	check_arg(int ac, char **av)
 {
 	int	i;
 
-	i = 0;
-	while (i < ac)
+	i = -1;
+	while (++i < ac)
 	{
-		if (!is_digits(av[1]))
+		if (!is_digits(av[i]))
 			return (0);
 		if (!is_int(av[i]))
 			return (0);
-		i++;
 	}
 	return (1);
 }

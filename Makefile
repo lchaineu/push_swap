@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lanachaineux <lanachaineux@student.42.f    +#+  +:+       +#+         #
+#    By: lchaineu <lchaineu@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/12 08:17:32 by lanachaineu       #+#    #+#              #
-#    Updated: 2021/08/12 08:22:57 by lanachaineu      ###   ########.fr        #
+#    Updated: 2021/11/10 14:38:33 by lchaineu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,9 +57,10 @@ OBJS				= ${SRCS:.c=.o}
 
 ######## RULES ########
 
-all : libs $(NAME)
+all : $(NAME)
 
-$(NAME) : libs $(OBJS)
+$(NAME) : $(OBJS)
+	@make -C $(LIBFT_PATH)
 	@$(CC) -o $(NAME) $(OBJS) $(CFLAGS) $(LINKS)
 
 clean :

@@ -6,27 +6,11 @@
 /*   By: lchaineu <lchaineu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/14 10:37:33 by lchaineu          #+#    #+#             */
-/*   Updated: 2021/09/14 10:37:34 by lchaineu         ###   ########.fr       */
+/*   Updated: 2021/11/10 15:07:56 by lchaineu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
-
-void	print_stack(t_stack *stack)
-{
-	t_elem	*current;
-
-	if (stack == NULL)
-		return ;
-	current = stack->first;
-	while (current)
-	{
-		ft_putnbr(current->nb);
-		ft_putchar('\n');
-		current = current->next;
-	}
-	ft_putchar('\n');
-}
 
 t_stack	*init_empty_stack(void)
 {
@@ -52,10 +36,7 @@ t_stack	*fill_stack_with_ints(int ac, char **av)
 	while (--ac >= 0)
 	{
 		if (!add_elem(stack, ft_atoi(av[ac])))
-		{
-			free_stack(stack);
 			return (NULL);
-		}
 	}
 	return (stack);
 }

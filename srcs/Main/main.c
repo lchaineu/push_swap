@@ -6,7 +6,7 @@
 /*   By: lchaineu <lchaineu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/14 10:37:08 by lchaineu          #+#    #+#             */
-/*   Updated: 2021/09/14 10:37:11 by lchaineu         ###   ########.fr       */
+/*   Updated: 2021/11/10 13:42:52 by lchaineu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int	main(int ac, char **av)
 	data.b_stack = b_stack;
 	if (!is_double(a_stack))
 		exit_and_free(&data, 2);
-	if (is_sorted(a_stack, b_stack))
+	if (is_sorted(a_stack))
 		exit_and_free(&data, 3);
 	sort_by_type_of_stack(a_stack, b_stack);
 	exit_and_free(&data, 3);

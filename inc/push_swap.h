@@ -6,7 +6,7 @@
 /*   By: lchaineu <lchaineu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/14 10:35:29 by lchaineu          #+#    #+#             */
-/*   Updated: 2021/09/14 10:35:33 by lchaineu         ###   ########.fr       */
+/*   Updated: 2021/11/10 15:08:16 by lchaineu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include <unistd.h>
 # include <stdlib.h>
-# include <stdio.h>
 # include "../Lib19/libft.h"
 
 typedef struct s_elem {
@@ -63,9 +62,8 @@ int			check_arg(int ac, char **av);
 int			get_proper_stack(int *ac, char ***av, t_data *data);
 t_stack		*fill_stack_with_ints(int ac, char **av);
 t_stack		*init_empty_stack(void);
-void		print_stack(t_stack *stack);
 int			is_double(t_stack *stack);
-int			is_sorted(t_stack *a_stack, t_stack *b_stack);
+int			is_sorted(t_stack *a_stack);
 
 //Sorting
 void		sort_stack_of_two(t_stack *a_stack);

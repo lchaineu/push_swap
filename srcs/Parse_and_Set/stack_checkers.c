@@ -6,7 +6,7 @@
 /*   By: lchaineu <lchaineu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/14 10:37:37 by lchaineu          #+#    #+#             */
-/*   Updated: 2021/09/14 10:37:38 by lchaineu         ###   ########.fr       */
+/*   Updated: 2021/11/10 13:43:19 by lchaineu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,10 @@ int	is_double(t_stack *stack)
 	return (1);
 }
 
-int	is_sorted(t_stack *a_stack, t_stack *b_stack)
+int	is_sorted(t_stack *a_stack)
 {
 	t_elem	*current;
 
-	if (!a_stack->first)
-		return (0);
 	current = a_stack->first;
 	while (current->next)
 	{
@@ -45,7 +43,5 @@ int	is_sorted(t_stack *a_stack, t_stack *b_stack)
 			return (0);
 		current = current->next;
 	}
-	if (b_stack->first != NULL)
-		return (0);
 	return (1);
 }
